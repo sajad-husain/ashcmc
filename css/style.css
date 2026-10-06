@@ -1,0 +1,45 @@
+/* ============================================
+   ASH CORPORATE — Global Stylesheet
+   Brand: Navy #0f172a | Accent #fbbf24
+   ============================================ */
+
+/* --- CSS Variables & Reset --- */
+:root {
+    --primary-navy: #0f172a; /* Dark Navy for text and footer */
+    --accent-yellow: #fbbf24; /* Logo Yellow */
+    --light-bg: #f8fafc;
+    --text-dark: #334155;
+    --text-light: #64748b;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding { padding: 80px 0; }
+.bg-light { background-color: var(--light-bg); }
+
