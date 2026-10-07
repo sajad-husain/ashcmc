@@ -43,3 +43,29 @@ ul { list-style: none; }
 .section-padding { padding: 80px 0; }
 .bg-light { background-color: var(--light-bg); }
 
+/* ============================================
+   TOP BAR
+   ============================================ */
+.top-bar {
+    background-color: var(--primary-navy);
+    color: var(--white);
+    font-size: 0.85rem;
+    padding: 8px 0;
+}
+
+.top-bar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-info span { margin-right: 20px; }
+.top-info i { color: var(--accent-yellow); margin-right: 5px; }
+
+.top-social a {
+    margin-left: 15px;
+    color: var(--white);
+    transition: 0.3s;
+}
+.top-social a:hover { color: var(--accent-yellow); }
+
