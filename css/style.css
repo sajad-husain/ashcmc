@@ -105,15 +105,44 @@ ul { list-style: none; }
     color: var(--accent-yellow);
     border-bottom: 2px solid var(--accent-yellow);
 }
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background-color: #0b1120;
+    color: #94a3b8;
+    padding-top: 60px;
+}
 
-/* Hamburger (mobile only) */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.6rem;
-    color: var(--primary-navy);
-    cursor: pointer;
-    padding: 6px 10px;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-brand img { height: 58px; width: auto; margin-bottom: 15px; }
+
+.footer-brand p { font-size: 0.9rem; }
+
+.footer-links h3,
+.footer-contact h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links a:hover { color: var(--accent-yellow); }
+
+.footer-contact p { margin-bottom: 15px; font-size: 0.9rem; }
+.footer-contact i { color: var(--accent-yellow); margin-right: 10px; }
+
+.footer-bottom {
+    background-color: var(--primary-navy);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.8rem;
+    border-top: 1px solid #1e293b;
 }
 
