@@ -267,6 +267,24 @@ ul { list-style: none; }
 .center-btn { text-align: center; margin-top: 50px; }
 
 /* ============================================
+   STATS SECTION
+   ============================================ */
+.stats-section {
+    background-color: var(--primary-navy);
+    padding: 60px 0;
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.stat-item h2 { font-size: 3rem; color: var(--accent-yellow); margin-bottom: 5px; }
+.stat-item h2 span { color: var(--white); }
+
+/* ============================================
    FOOTER
    ============================================ */
 footer {
