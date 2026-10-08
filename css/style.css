@@ -156,6 +156,32 @@ ul { list-style: none; }
 .btn-secondary:hover { background-color: var(--navy-soft); }
 
 /* ============================================
+   ABOUT PREVIEW (Home)
+   ============================================ */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.sub-heading {
+    color: var(--accent-yellow);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.about-text h2 { font-size: 2.2rem; color: var(--primary-navy); margin-bottom: 20px; }
+.about-text p { color: var(--text-light); margin-bottom: 20px; }
+
+.about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 footer {
