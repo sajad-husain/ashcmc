@@ -156,6 +156,46 @@ ul { list-style: none; }
 .btn-secondary:hover { background-color: var(--navy-soft); }
 
 /* ============================================
+   PAGE HEADER (Inner pages banner)
+   ============================================ */
+.page-header {
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
+        url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 70px 0;
+}
+
+.page-header h1 {
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    color: var(--white);
+}
+
+.page-header .crumb {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.page-header .crumb a { color: var(--accent-yellow); }
+
+/* ============================================
+   SECTION TITLE
+   ============================================ */
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 2.2rem; color: var(--primary-navy); }
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-yellow);
+    margin: 15px auto 0;
+}
+
+.divider-left { margin: 15px 0 0; }
+
+/* ============================================
    ABOUT PREVIEW (Home)
    ============================================ */
 .about-grid {
@@ -180,6 +220,51 @@ ul { list-style: none; }
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
+
+/* ============================================
+   SERVICES GRID (Home)
+   ============================================ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border-top: 3px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-top: 3px solid var(--accent-yellow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.icon-box {
+    font-size: 2rem;
+    color: var(--primary-navy);
+    background: #f1f5f9;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.service-card h3 { font-size: 1.2rem; color: var(--primary-navy); margin-bottom: 10px; }
+.service-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px; }
+
+.read-more { color: var(--primary-navy); font-weight: 600; font-size: 0.9rem; }
+.read-more:hover { color: var(--accent-yellow); }
+
+.center-btn { text-align: center; margin-top: 50px; }
 
 /* ============================================
    FOOTER
