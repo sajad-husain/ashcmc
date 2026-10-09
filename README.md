@@ -7,3 +7,10 @@ A portfolio website for Ash Coporation which provides wide varitey of servies to
 - [x] No horizontal scrolling on mobile (overflow-x hidden, responsive grids)
 - [x] Hamburger menu works on small screens (<=992px)
 - [x] Tax calculator verified: PKR 150k/month -> PKR 210,000 annual tax (FY 2024-25)
+## Pages
+- index.html (Home)
+- about.html (About Us)
+- services.html (Our Services in zig-zag detail)
+- career.html (Careers & CV submission)
+- contact.html (Contact form, info box & map)
+- tax.html (Income Tax Calculator)
