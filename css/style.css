@@ -285,6 +285,48 @@ ul { list-style: none; }
 .stat-item h2 span { color: var(--white); }
 
 /* ============================================
+   ABOUT PAGE — "Who We Are" / "Our Expertise"
+   ============================================ */
+.about-body { max-width: 850px; margin: 0 auto; }
+
+.about-block { margin-bottom: 50px; }
+
+.about-block:last-child { margin-bottom: 0; }
+
+.about-block h3 {
+    color: var(--primary-navy);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.about-block .divider-left { margin-bottom: 20px; }
+
+.about-block p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.about-block ul {
+    margin-top: 15px;
+}
+
+.about-block ul li {
+    color: var(--text-light);
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.about-block ul li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent-yellow);
+    position: absolute;
+    left: 0;
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 footer {
