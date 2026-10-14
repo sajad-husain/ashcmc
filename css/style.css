@@ -327,6 +327,57 @@ ul { list-style: none; }
 }
 
 /* ============================================
+   SERVICES PAGE — Zig-Zag Layout
+   ============================================ */
+.service-row {
+    padding: 70px 0; /* Background lives on the outer section */
+}
+
+/* The container inside the row is the zig-zag grid */
+.service-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.service-img img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.service-title h3 {
+    font-size: 1.8rem;
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+}
+
+.service-title .divider-left { margin-bottom: 20px; }
+
+.service-title p { color: var(--text-light); margin-bottom: 20px; }
+
+.service-title ul li {
+    color: var(--text-light);
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.service-title ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent-yellow);
+    font-size: 0.85rem;
+    position: absolute;
+    left: 0;
+}
+
+/* Reverse rows (image left / text right) */
+.service-row.reverse .service-img { order: -1; }
+
+/* ============================================
    CAREER PAGE
    ============================================ */
 .career-box {
