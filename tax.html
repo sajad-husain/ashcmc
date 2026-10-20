@@ -47,6 +47,51 @@
         </div>
     </header>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>TAX CALCULATOR</h1>
+            <p class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Tax Calculator</p>
+        </div>
+    </section>
+
+    <!-- Calculator & Sidebar -->
+    <section class="section-padding bg-light">
+        <div class="container tax-layout">
+            <!-- Left: Tax Calculator Widget -->
+            <div class="tax-widget">
+                <h3>Income Tax Calculator</h3>
+                <p>Estimate your income tax as a salaried individual in Pakistan (Tax Year 2024-25 slabs).</p>
+                <form id="taxForm">
+                    <div class="tax-field">
+                        <label for="salary-type">Salary Type</label>
+                        <select id="salary-type" name="salary-type">
+                            <option value="monthly">Monthly Salary (PKR)</option>
+                            <option value="annual">Annual Salary (PKR)</option>
+                        </select>
+                    </div>
+                    <div class="tax-field">
+                        <label for="salary-amount">Amount (PKR)</label>
+                        <input type="number" id="salary-amount" name="salary-amount" placeholder="e.g. 150000" min="1" step="any">
+                    </div>
+                    <button type="submit" class="btn-primary">CALCULATE</button>
+                </form>
+
+                <!-- Results (shown after calculation) -->
+                <div id="tax-result" class="tax-result">
+                    <h4><i class="fa-solid fa-chart-pie"></i> Your Tax Estimate</h4>
+                    <div class="tax-line"><span>Taxable Annual Income</span><strong id="r-taxable">—</strong></div>
+                    <div class="tax-line"><span>Annual Tax Payable</span><strong id="r-tax-annual">—</strong></div>
+                    <div class="tax-line"><span>Monthly Tax (Withheld)</span><strong id="r-tax-monthly">—</strong></div>
+                    <div class="tax-line"><span>Net Monthly Salary</span><strong id="r-net-monthly">—</strong></div>
+                    <div class="tax-line total"><span>Net Annual Income</span><strong id="r-take-home">—</strong></div>
+                    <p class="tax-note">Note: This is an approximate estimate. Exact liability may vary — contact our team for filing and advisory support.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container footer-grid">
