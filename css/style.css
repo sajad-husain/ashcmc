@@ -105,6 +105,18 @@ ul { list-style: none; }
     color: var(--accent-yellow);
     border-bottom: 2px solid var(--accent-yellow);
 }
+
+/* Hamburger (mobile only) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: var(--primary-navy);
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
 /* ============================================
    HERO (Home)
    ============================================ */
@@ -726,73 +738,6 @@ ul { list-style: none; }
 
 .recent-item span i { color: var(--accent-yellow); margin-right: 5px; }
 
-/* --- Sidebar --- */
-.sidebar {
-    background: var(--white);
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    margin-bottom: 30px;
-}
-
-.sidebar h3 {
-    color: var(--primary-navy);
-    font-size: 1.15rem;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent-yellow);
-    display: inline-block;
-}
-
-.search-bar {
-    display: flex;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.search-bar input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 10px 14px;
-    font-size: 0.9rem;
-    font-family: inherit;
-    color: var(--text-dark);
-}
-
-.search-bar button {
-    background: var(--primary-navy);
-    color: var(--white);
-    border: none;
-    padding: 0 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.search-bar button:hover { background: var(--accent-yellow); color: var(--primary-navy); }
-
-.recent-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.recent-item:last-child { border-bottom: none; }
-
-.recent-item h4 {
-    font-size: 0.95rem;
-    color: var(--primary-navy);
-    margin-bottom: 4px;
-    transition: 0.3s;
-}
-
-.recent-item h4:hover { color: var(--accent-yellow); }
-
-.recent-item span { font-size: 0.8rem; color: var(--text-light); }
-
-.recent-item span i { color: var(--accent-yellow); margin-right: 5px; }
-
 /* ============================================
    FOOTER
    ============================================ */
@@ -834,3 +779,76 @@ footer {
     border-top: 1px solid #1e293b;
 }
 
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 992px) {
+    /* Mobile hamburger menu */
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--white);
+        gap: 0;
+        border-top: 1px solid #f1f5f9;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li { border-bottom: 1px solid #f1f5f9; }
+    .nav-links li:last-child { border-bottom: none; }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent-yellow);
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar-flex { flex-direction: column; gap: 10px; text-align: center; }
+    .top-info span { margin: 0 8px; }
+
+    .hero { padding: 80px 0; }
+    .hero h1 { font-size: 2.3rem; }
+    .hero p { font-size: 1rem; }
+
+    .section-padding { padding: 60px 0; }
+
+    .about-grid,
+    .services-grid,
+    .stats-grid,
+    .footer-grid,
+    .contact-grid,
+    .tax-layout { grid-template-columns: 1fr; }
+
+    .stats-grid { gap: 25px; }
+    .stat-item h2 { font-size: 2.2rem; }
+    .service-card h3 { font-size: 1.1rem; }
+
+    .page-header h1 { font-size: 1.9rem; }
+
+    /* Zig-zag collapses to single column */
+    .service-row { padding: 50px 0; }
+    .service-row-grid { grid-template-columns: 1fr; gap: 25px; }
+    .service-title h3 { font-size: 1.4rem; }
+
+    .contact-form,
+    .contact-info-box,
+    .tax-widget,
+    .sidebar { padding: 30px 22px; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .map-wrap { height: 300px; }
+
+    .career-box { padding: 40px 25px; }
+}

@@ -6,6 +6,28 @@
    ============================================ */
 
 /* ------------------------------------------------
+   1. MOBILE MENU — toggle hamburger open/close
+------------------------------------------------ */
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+        const isOpen = navLinks.classList.toggle('open');
+
+        // Swap the icon between bars and X
+        const icon = menuToggle.querySelector('i');
+        if (isOpen) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
+}
+
+/* ------------------------------------------------
    2. CONTACT FORM — basic validation + status note
    (Front-end placeholder; connect a backend or a
    form service like FormSubmit for real sending.)
