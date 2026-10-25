@@ -56,85 +56,67 @@
         </div>
     </section>
 
-    <!-- Calculator & Sidebar -->
+    <!-- Tax Calculator -->
     <section class="section-padding bg-light">
-        <div class="container tax-layout">
-            <!-- Left: Tax Calculator Widget -->
-            <div class="tax-widget">
-                <h3>Income Tax Calculator</h3>
-                <p>Estimate your income tax as a salaried individual in Pakistan (Tax Year 2024-25 slabs).</p>
-                <form id="taxForm">
-                    <div class="tax-field">
-                        <label for="salary-type">Salary Type</label>
-                        <select id="salary-type" name="salary-type">
-                            <option value="monthly">Monthly Salary (PKR)</option>
-                            <option value="annual">Annual Salary (PKR)</option>
-                        </select>
-                    </div>
-                    <div class="tax-field">
-                        <label for="salary-amount">Amount (PKR)</label>
-                        <input type="number" id="salary-amount" name="salary-amount" placeholder="e.g. 150000" min="1" step="any">
-                    </div>
-                    <button type="submit" class="btn-primary">CALCULATE</button>
-                </form>
+        <div class="container">
+            <div class="tax-section">
+                <h1 class="tax-main-heading">Pakistan Tax Calculator 2025-2026</h1>
 
-                <!-- Results (shown after calculation) -->
-                <div id="tax-result" class="tax-result">
-                    <h4><i class="fa-solid fa-chart-pie"></i> Your Tax Estimate</h4>
-                    <div class="tax-line"><span>Taxable Annual Income</span><strong id="r-taxable">—</strong></div>
-                    <div class="tax-line"><span>Annual Tax Payable</span><strong id="r-tax-annual">—</strong></div>
-                    <div class="tax-line"><span>Monthly Tax (Withheld)</span><strong id="r-tax-monthly">—</strong></div>
-                    <div class="tax-line"><span>Net Monthly Salary</span><strong id="r-net-monthly">—</strong></div>
-                    <div class="tax-line total"><span>Net Annual Income</span><strong id="r-take-home">—</strong></div>
-                    <p class="tax-note">Note: This is an approximate estimate. Exact liability may vary — contact our team for filing and advisory support.</p>
+                <!-- Tab Navigation -->
+                <div class="tax-tabs" role="tablist">
+                    <button class="tax-tab active" data-panel="panel-salary" type="button">Salary Tax</button>
+                    <button class="tax-tab" data-panel="panel-pension" type="button">Pension Tax</button>
+                    <button class="tax-tab" data-panel="panel-business" type="button">Business Tax</button>
+                    <button class="tax-tab" data-panel="panel-rental" type="button">Rental Tax</button>
+                    <button class="tax-tab" data-panel="panel-property" type="button">Property Tax</button>
+                </div>
+
+                <!-- Calculator Card -->
+                <div class="tax-card">
+                    <!-- Salary Tax Panel (default) -->
+                    <div class="tax-panel" id="panel-salary">
+                        <h2 class="tax-panel-heading">Salary Tax Calculator (2025-2026)</h2>
+                        <form id="taxForm">
+                            <div class="tax-field-group">
+                                <label for="salary-type">Salary Type</label>
+                                <select id="salary-type" name="salary-type">
+                                    <option value="annual">Annual</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="salary-amount">Salary Amount (PKR)</label>
+                                <input type="number" id="salary-amount" name="salary-amount" placeholder="e.g. 1200000" min="1" step="any">
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
+                    </div>
+
+                    <!-- Pension Tax Panel -->
+                    <div class="tax-panel hidden" id="panel-pension">
+                        <h2 class="tax-panel-heading">Pension Tax Calculator (2025-2026)</h2>
+                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — contact our team for pension tax advisory in the meantime.</p>
+                    </div>
+
+                    <!-- Business Tax Panel -->
+                    <div class="tax-panel hidden" id="panel-business">
+                        <h2 class="tax-panel-heading">Business Tax Calculator (2025-2026)</h2>
+                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — our team handles business tax planning and filings for companies and sole proprietors.</p>
+                    </div>
+
+                    <!-- Rental Tax Panel -->
+                    <div class="tax-panel hidden" id="panel-rental">
+                        <h2 class="tax-panel-heading">Rental Tax Calculator (2025-2026)</h2>
+                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — for rental income tax estimates, reach us at Ashcmc.ceo@gmail.com.</p>
+                    </div>
+
+                    <!-- Property Tax Panel -->
+                    <div class="tax-panel hidden" id="panel-property">
+                        <h2 class="tax-panel-heading">Property Tax Calculator (2025-2026)</h2>
+                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — property sales tax &amp; advance tax advisory available on request.</p>
+                    </div>
                 </div>
             </div>
-
-            <!-- Right: Sidebar -->
-            <aside>
-                <!-- Search -->
-                <div class="sidebar">
-                    <h3>Search</h3>
-                    <form class="search-bar" role="search">
-                        <input type="search" placeholder="Search here..." aria-label="Search">
-                        <button type="submit" aria-label="Search button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
-
-                <!-- Recent Posts -->
-                <div class="sidebar">
-                    <h3>Recent Posts</h3>
-                    <div class="recent-item">
-                        <h4><a href="services.html">Tax Return Filing Deadline Guide</a></h4>
-                        <span><i class="fa-solid fa-calendar"></i> Oct 2026</span>
-                    </div>
-                    <div class="recent-item">
-                        <h4><a href="services.html">SECP Company Registration Steps</a></h4>
-                        <span><i class="fa-solid fa-calendar"></i> Sep 2026</span>
-                    </div>
-                    <div class="recent-item">
-                        <h4><a href="services.html">Why Your Business Needs a Virtual CFO</a></h4>
-                        <span><i class="fa-solid fa-calendar"></i> Aug 2026</span>
-                    </div>
-                    <div class="recent-item">
-                        <h4><a href="services.html">Sales Tax (GST) Basics for SMEs</a></h4>
-                        <span><i class="fa-solid fa-calendar"></i> Jul 2026</span>
-                    </div>
-                </div>
-
-                <!-- Recent Comments -->
-                <div class="sidebar">
-                    <h3>Recent Comments</h3>
-                    <div class="recent-item">
-                        <h4><a href="services.html">Ahmed Khan on "Tax Return Filing Guide"</a></h4>
-                        <span><i class="fa-solid fa-comments"></i> "Very helpful, thank you team!"</span>
-                    </div>
-                    <div class="recent-item">
-                        <h4><a href="services.html">Sara Malik on "Virtual CFO Services"</a></h4>
-                        <span><i class="fa-solid fa-comments"></i> "Great service, highly recommended."</span>
-                    </div>
-                </div>
-            </aside>
         </div>
     </section>
 

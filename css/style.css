@@ -569,175 +569,137 @@ ul { list-style: none; }
 .info-item p { font-size: 0.9rem; color: #cbd5e1; }
 
 /* ============================================
-   TAX CALCULATOR
+   TAX CALCULATOR (Tabbed, FY 2025-2026)
    ============================================ */
-.tax-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    align-items: start;
+.tax-section {
+    max-width: 760px;
+    margin: 0 auto;
 }
 
-.tax-widget {
-    background: var(--white);
-    border: 1px solid #e2e8f0;
-    border-top: 4px solid var(--accent-yellow);
-    border-radius: 8px;
-    padding: 40px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-}
-
-.tax-widget h3 {
+.tax-main-heading {
+    text-align: center;
     color: var(--primary-navy);
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 35px;
 }
 
-.tax-widget > p { color: var(--text-light); margin-bottom: 25px; font-size: 0.95rem; }
+/* Folder-style tab bar (text-link tabs) */
+.tax-tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 8px;
+    gap: 2px;
+}
 
-.tax-field { margin-bottom: 20px; }
+.tax-tab {
+    appearance: none;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 13px 20px;
+    margin-bottom: -1px; /* rides over the strip line */
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
 
-.tax-field label {
+.tax-tab:hover { color: #2563eb; }
+
+.tax-tab.active {
+    background: var(--white);
+    border-color: #e2e8f0;
+    color: var(--primary-navy);
+    position: relative;
+    z-index: 1;
+}
+
+/* White card that the active tab blends into */
+.tax-card {
+    background: var(--white);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    padding: 40px;
+}
+
+.tax-panel.hidden { display: none; }
+
+.tax-panel-heading {
+    color: #2563eb;
+    font-size: 1.45rem;
+    margin-bottom: 25px;
+}
+
+.tax-field-group { margin-bottom: 20px; }
+
+.tax-field-group label {
     display: block;
     font-weight: 600;
     color: var(--primary-navy);
-    font-size: 0.9rem;
-    margin-bottom: 6px;
+    font-size: 0.92rem;
+    margin-bottom: 8px;
 }
 
-.tax-field input,
-.tax-field select {
+.tax-field-group select,
+.tax-field-group input {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px 14px;
     border: 1px solid #e2e8f0;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.95rem;
-    color: var(--text-dark);
-    outline: none;
-    transition: 0.3s;
-    font-family: inherit;
-    background: var(--white);
-}
-
-.tax-field input:focus,
-.tax-field select:focus {
-    border-color: var(--accent-yellow);
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
-}
-
-.tax-result {
-    display: none;
-    margin-top: 25px;
-    background: var(--light-bg);
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 25px;
-}
-
-.tax-result.show { display: block; }
-
-.tax-result h4 {
-    color: var(--primary-navy);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.tax-line {
-    display: flex;
-    justify-content: space-between;
-    padding: 7px 0;
-    font-size: 0.95rem;
-    color: var(--text-light);
-}
-
-.tax-line strong { color: var(--primary-navy); }
-
-.tax-line.total {
-    border-top: 2px solid var(--accent-yellow);
-    margin-top: 10px;
-    padding-top: 12px;
-    font-weight: 700;
-}
-
-.tax-line.total span,
-.tax-line.total strong { color: var(--primary-navy); font-size: 1.05rem; }
-
-.tax-note {
-    margin-top: 15px;
-    font-size: 0.8rem;
-    color: var(--text-light);
-    font-style: italic;
-}
-
-/* --- Sidebar --- */
-.sidebar {
-    background: var(--white);
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    margin-bottom: 30px;
-}
-
-.sidebar h3 {
-    color: var(--primary-navy);
-    font-size: 1.15rem;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent-yellow);
-    display: inline-block;
-}
-
-.search-bar {
-    display: flex;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.search-bar input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 10px 14px;
-    font-size: 0.9rem;
     font-family: inherit;
     color: var(--text-dark);
+    outline: none;
+    background: var(--white);
+    transition: 0.2s;
 }
 
-.search-bar button {
-    background: var(--primary-navy);
+.tax-field-group select:focus,
+.tax-field-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.tax-btn {
+    width: 100%;
+    background: #2563eb;
     color: var(--white);
     border: none;
-    padding: 0 16px;
+    border-radius: 6px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-.search-bar button:hover { background: var(--accent-yellow); color: var(--primary-navy); }
-
-.recent-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #f1f5f9;
+.tax-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
 }
 
-.recent-item:last-child { border-bottom: none; }
-
-.recent-item h4 {
+.tax-coming {
+    text-align: center;
+    color: var(--text-light);
+    padding: 35px 0 15px;
     font-size: 0.95rem;
-    color: var(--primary-navy);
-    margin-bottom: 4px;
-    transition: 0.3s;
 }
 
-.recent-item h4:hover { color: var(--accent-yellow); }
+.tax-coming i { color: #2563eb; margin-right: 8px; }
 
-.recent-item span { font-size: 0.8rem; color: var(--text-light); }
-
-.recent-item span i { color: var(--accent-yellow); margin-right: 5px; }
-
+@media (max-width: 768px) {
+    .tax-main-heading { font-size: 1.6rem; }
+    .tax-tabs { flex-wrap: wrap; }
+    .tax-tab { padding: 11px 14px; font-size: 0.9rem; }
+    .tax-card { padding: 25px 18px; border-radius: 0 0 8px 8px; }
+}
 /* ============================================
    FOOTER
    ============================================ */
@@ -827,8 +789,7 @@ footer {
     .services-grid,
     .stats-grid,
     .footer-grid,
-    .contact-grid,
-    .tax-layout { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
 
     .stats-grid { gap: 25px; }
     .stat-item h2 { font-size: 2.2rem; }
@@ -842,9 +803,7 @@ footer {
     .service-title h3 { font-size: 1.4rem; }
 
     .contact-form,
-    .contact-info-box,
-    .tax-widget,
-    .sidebar { padding: 30px 22px; }
+    .contact-info-box { padding: 30px 22px; }
 
     .form-row { grid-template-columns: 1fr; }
 

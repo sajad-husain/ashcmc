@@ -58,14 +58,30 @@ if (contactForm) {
 }
 
 /* ------------------------------------------------
-   3. TAX CALCULATOR — Pakistan Income Tax
-   Approximate salaried slabs (Tax Year 2024-25).
-   For guidance only — consult our team for filing.
+   3. TAX CALCULATOR — tabbed redesign
+   Tab switching is active now; the calculation runs
+   in console.log only until slab logic is wired up.
 ------------------------------------------------ */
-const taxForm = document.getElementById('taxForm');
+const taxTabs = document.querySelectorAll('.tax-tab');
+
+if (taxTabs.length) {
+    const taxPanels = document.querySelectorAll('.tax-panel');
+
+    taxTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            taxTabs.forEach(function (t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+
+            // Show the matching panel, hide the rest
+            taxPanels.forEach(function (panel) {
+                panel.classList.toggle('hidden', panel.id !== tab.dataset.panel);
+            });
+        });
+    });
+}
 
 /**
- * Annual tax for salaried individuals (Tax Year 2024-25 slabs)
+ * Annual tax for salaried individuals (kept ready for upcoming logic)
  * @param {number} taxable - annual taxable income in PKR
  * @returns {number} annual tax in PKR
  */
@@ -82,49 +98,19 @@ function formatPKR(amount) {
     return 'PKR ' + Math.round(amount).toLocaleString('en-PK');
 }
 
+const taxForm = document.getElementById('taxForm');
+
 if (taxForm) {
     taxForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const type = document.getElementById('salary-type').value;   // "monthly" | "annual"
-        const amountEl = document.getElementById('salary-amount');
-        const resultBox = document.getElementById('tax-result');
-        const lines = {
-            taxable: document.getElementById('r-taxable'),
-            taxAnnual: document.getElementById('r-tax-annual'),
-            taxMonthly: document.getElementById('r-tax-monthly'),
-            netMonthly: document.getElementById('r-net-monthly'),
-            takeHome: document.getElementById('r-take-home')
-        };
+        const type = document.getElementById('salary-type').value;   // "annual" | "monthly"
+        const amount = document.getElementById('salary-amount').value;
 
-        const amount = parseFloat(amountEl.value);
-
-        if (isNaN(amount) || amount <= 0) {
-            alert('Please enter a valid salary amount.');
-            amountEl.focus();
-            return;
-        }
-
-        // Convert the entered amount into an annual figure
-        const annualIncome = type === 'monthly' ? amount * 12 : amount;
-
-        const annualTax = calculateAnnualTax(annualIncome);
-        const monthlyTax = annualTax / 12;
-        const netMonthly = (annualIncome - annualTax) / 12;
-
-        lines.taxable.textContent = formatPKR(annualIncome);
-        lines.taxAnnual.textContent = formatPKR(annualTax);
-        lines.taxMonthly.textContent = formatPKR(monthlyTax);
-        lines.netMonthly.textContent = formatPKR(netMonthly);
-        lines.takeHome.textContent = formatPKR(annualIncome - annualTax);
-
-        resultBox.classList.add('show');
-
-        // Log for verification / debugging
-        console.log('ASH Tax Calculator —', {
-            input: amount + ' (' + type + ')',
-            annualTaxable: annualIncome,
-            annualTax: annualTax
+        console.log('Tax Calculator input:', {
+            salaryType: type,
+            salaryAmount: amount
         });
+        // Real slab calculation and on-page results will be added here later.
     });
 }
