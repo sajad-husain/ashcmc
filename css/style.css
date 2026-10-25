@@ -581,8 +581,10 @@ ul { list-style: none; }
     color: var(--primary-navy);
     font-size: 2.3rem;
     line-height: 1.2;
-    margin-bottom: 35px;
+    margin-bottom: 18px;
 }
+
+.brand-divider-gap { margin-top: 24px; }
 
 /* Folder-style tab bar (text-link tabs) */
 .tax-tabs {
@@ -598,7 +600,7 @@ ul { list-style: none; }
     border: 1px solid transparent;
     border-bottom: none;
     border-radius: 8px 8px 0 0;
-    color: #2563eb;
+    color: var(--text-dark);
     font-family: inherit;
     font-size: 0.95rem;
     font-weight: 600;
@@ -609,12 +611,13 @@ ul { list-style: none; }
     white-space: nowrap;
 }
 
-.tax-tab:hover { color: #1d4ed8; }
+.tax-tab:hover { color: var(--primary-navy); }
 
 .tax-tab.active {
     background: var(--white);
     border-color: #e2e8f0;
-    color: #2563eb;
+    color: var(--primary-navy);
+    box-shadow: inset 0 -3px 0 var(--accent-yellow); /* yellow underline, like the navbar */
     position: relative;
     z-index: 1;
 }
@@ -630,11 +633,13 @@ ul { list-style: none; }
 .tax-panel.hidden { display: none; }
 
 .tax-panel-heading {
-    color: #2563eb;
+    color: var(--primary-navy);
     font-size: 1.45rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
 }
+
+.tax-panel .divider { margin-bottom: 25px; }
 
 .tax-field-group { margin-bottom: 20px; }
 
@@ -662,14 +667,14 @@ ul { list-style: none; }
 
 .tax-field-group select:focus,
 .tax-field-group input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
 }
 
 .tax-btn {
     width: 100%;
-    background: #2563eb;
-    color: var(--white);
+    background: var(--accent-yellow);
+    color: var(--primary-navy);
     border: none;
     border-radius: 6px;
     padding: 14px;
@@ -682,7 +687,7 @@ ul { list-style: none; }
 }
 
 .tax-btn:hover {
-    background: #1d4ed8;
+    background: var(--yellow-dark);
     transform: translateY(-1px);
 }
 
@@ -693,7 +698,7 @@ ul { list-style: none; }
     font-size: 0.95rem;
 }
 
-.tax-coming i { color: #2563eb; margin-right: 8px; }
+.tax-coming i { color: var(--accent-yellow); margin-right: 8px; }
 
 @media (max-width: 768px) {
     .tax-main-heading { font-size: 1.6rem; }
