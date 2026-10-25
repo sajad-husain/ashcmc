@@ -418,21 +418,17 @@ ul { list-style: none; }
 
 .career-box p { color: var(--text-light); }
 
-.career-box .cv-email {
-    display: inline-block;
-    margin-top: 20px;
-    font-weight: 700;
-    color: var(--primary-navy);
-    background: var(--light-bg);
-    padding: 10px 22px;
-    border-radius: 4px;
-    border: 1px solid #e2e8f0;
-    transition: 0.3s;
+.career-box .cv-btn {
+    margin-top: 18px;
 }
 
-.career-box .cv-email:hover {
-    background: var(--accent-yellow);
-    border-color: var(--accent-yellow);
+.career-box .cv-btn i { margin-right: 8px; }
+
+.career-box .cv-email-note {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-navy);
 }
 
 /* ============================================
