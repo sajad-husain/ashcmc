@@ -2,7 +2,6 @@
    ASH CORPORATE — Main JavaScript
    1. Mobile Menu (Hamburger)
    2. Contact Form Handler
-   3. Tax Calculator Logic
    ============================================ */
 
 /* ------------------------------------------------
@@ -54,46 +53,5 @@ if (contactForm) {
             'Thank you, ' + name + '! Your message has been received. We will get back to you shortly.';
         status.className = 'form-status success';
         contactForm.reset();
-    });
-}
-
-/* ------------------------------------------------
-   3. TAX CALCULATOR — 5 tabbed calculators
-   Tab switching works now; Calculate shows a
-   placeholder alert until slab logic is wired up.
------------------------------------------------- */
-const taxTabs = document.querySelectorAll('.tax-tab');
-
-if (taxTabs.length) {
-    const taxPanels = document.querySelectorAll('.tax-panel');
-
-    taxTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-            taxTabs.forEach(function (t) {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-
-            // Show the matching panel, hide the rest
-            taxPanels.forEach(function (panel) {
-                const isTarget = panel.id === tab.dataset.panel;
-                panel.classList.toggle('hidden', !isTarget);
-                panel.setAttribute('aria-hidden', String(!isTarget));
-            });
-        });
-    });
-}
-
-// Placeholder handler for all five calculator forms
-const calcForms = document.querySelectorAll('.tax-calc-form');
-
-if (calcForms.length) {
-    calcForms.forEach(function (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Calculation logic will be added soon!');
-        });
     });
 }
