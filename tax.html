@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator | ASH Corporate</title>
+    <meta name="description" content="Free income tax calculator for Pakistani salaried individuals. Estimate your annual and monthly tax quickly.">
+    <link rel="icon" href="notlog-favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-flex">
+            <div class="top-info">
+                <span><i class="fa-solid fa-phone"></i> +92 311 8000048</span>
+                <span><i class="fa-solid fa-envelope"></i> Ashcmc.ceo@gmail.com</span>
+                <span><i class="fa-solid fa-clock"></i> Availability 24/7</span>
+            </div>
+            <div class="top-social">
+                <a href="https://www.facebook.com/ashcmc" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/ashcmc" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/ashcmc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="ASH Corporate Logo">
+            </a>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="career.html">Career</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="tax.html" class="active">Tax Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>TAX CALCULATOR</h1>
+            <p class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Tax Calculator</p>
+        </div>
+    </section>
+
+    <!-- Tax Calculator -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="tax-section">
+                <h1 class="tax-main-heading">Pakistan Tax Calculator 2025-2026</h1>
+                <div class="divider"></div>
+
+                <!-- Tab Navigation -->
+                <div class="tax-tabs brand-divider-gap" role="tablist">
+                    <button class="tax-tab active" type="button" role="tab" aria-selected="true" data-panel="panel-salary">Salary Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-pension">Pension Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-business">Business Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-rental">Rental Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-property">Property Tax</button>
+                </div>
+
+                <!-- Calculator Card -->
+                <div class="tax-card">
+                    <!-- 1) Salary Tax -->
+                    <div class="tax-panel" id="panel-salary" role="tabpanel" aria-hidden="false">
+                        <h2 class="tax-panel-heading">Salary Tax Calculator (2025-2026)</h2>
+                        <div class="divider"></div>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="salary-type">Salary Type</label>
+                                <select id="salary-type" name="salary-type">
+                                    <option value="annual">Annual</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="salary-amount">Salary Amount (PKR)</label>
+                                <input type="number" id="salary-amount" name="salary-amount" placeholder="e.g. 1200000" min="1" step="any">
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
+                    </div>
+
+                    <!-- 2) Pension Tax -->
+                    <div class="tax-panel hidden" id="panel-pension" role="tabpanel" aria-hidden="true">
+                        <h2 class="tax-panel-heading">Pension Tax Calculator (2025-2026)</h2>
+                        <div class="divider"></div>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="pension-amount">Annual Pension Amount (PKR)</label>
+                                <input type="number" id="pension-amount" name="pension-amount" placeholder="e.g. 900000" min="1" step="any">
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="pension-age">Age</label>
+                                <select id="pension-age" name="pension-age">
+                                    <option value="below-70">Below 70</option>
+                                    <option value="above-70">Above 70</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
+                    </div>
+
+                    <!-- 3) Business Tax -->
+                    <div class="tax-panel hidden" id="panel-business" role="tabpanel" aria-hidden="true">
+                        <h2 class="tax-panel-heading">Business Tax Calculator (2025-2026)</h2>
+                        <div class="divider"></div>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="business-type">Business Income Type</label>
+                                <select id="business-type" name="business-type">
+                                    <option value="annual">Annual</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="business-income">Business Income (PKR)</label>
+                                <input type="number" id="business-income" name="business-income" placeholder="e.g. 2500000" min="1" step="any">
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
+                    </div>
+
+                    <!-- 4) Rental Tax -->
+                    <div class="tax-panel hidden" id="panel-rental" role="tabpanel" aria-hidden="true">
+                        <h2 class="tax-panel-heading">Rental Tax Calculator (2025-2026)</h2>
+                        <div class="divider"></div>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="rental-type">Rental Income Type</label>
+                                <select id="rental-type" name="rental-type">
+                                    <option value="annual">Annual</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="rental-income">Rental Income (PKR)</label>
+                                <input type="number" id="rental-income" name="rental-income" placeholder="e.g. 600000" min="1" step="any">
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="rental-filer">Filer Status</label>
+                                <select id="rental-filer" name="rental-filer">
+                                    <option value="filer">Filer</option>
+                                    <option value="non-filer">Non-Filer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
+                    </div>
+
+                    <!-- 5) Property Tax -->
+                    <div class="tax-panel hidden" id="panel-property" role="tabpanel" aria-hidden="true">
+                        <h2 class="tax-panel-heading">Property Tax Calculator (2025-2026)</h2>
+                        <div class="divider"></div>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="property-transaction">Transaction Type</label>
+                                <select id="property-transaction" name="property-transaction">
+                                    <option value="sale">Sale/Transfer</option>
+                                    <option value="purchase">Purchase</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="property-amount">Amount (PKR)</label>
+                                <input type="number" id="property-amount" name="property-amount" placeholder="e.g. 15000000" min="1" step="any">
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="property-filer">Filer Status</label>
+                                <select id="property-filer" name="property-filer">
+                                    <option value="filer">Filer</option>
+                                    <option value="non-filer">Non-Filer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="logo.png" alt="ASH Corporate">
+                <p>Complete accounting, tax, and corporate services for a more organised and profitable business.</p>
+            </div>
+            <div class="footer-links">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="career.html">Career</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="tax.html">Tax Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>GET IN TOUCH</h3>
+                <p><i class="fa-solid fa-phone"></i> +92 311 8000048</p>
+                <p><i class="fa-solid fa-envelope"></i> Ashcmc.ceo@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ASH CORPORATE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

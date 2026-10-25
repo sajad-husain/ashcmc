@@ -7,6 +7,7 @@ A portfolio website for Ash Coporation which provides wide varitey of servies to
 - services.html (Our Services in zig-zag detail)
 - career.html (Careers & CV submission)
 - contact.html (Contact form, info box & map)
+- tax.html (five-tab tax calculator)
 
 ## QA Checklist (verified)
 - [x] All navbar & footer links point to the correct pages

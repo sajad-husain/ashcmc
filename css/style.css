@@ -1,5 +1,5 @@
 /* ============================================
-   ASH CORPORATE — Global Stylesheet
+   ASH CORPORATE - Global Stylesheet
    Brand: Navy #0f172a | Accent #fbbf24
    ============================================ */
 
@@ -297,7 +297,7 @@ ul { list-style: none; }
 .stat-item h2 span { color: var(--white); }
 
 /* ============================================
-   ABOUT PAGE — "Who We Are" / "Our Expertise"
+   ABOUT PAGE - "Who We Are" / "Our Expertise"
    ============================================ */
 .about-body { max-width: 850px; margin: 0 auto; }
 
@@ -339,7 +339,7 @@ ul { list-style: none; }
 }
 
 /* ============================================
-   SERVICES PAGE — Zig-Zag Layout
+   SERVICES PAGE - Zig-Zag Layout
    ============================================ */
 .service-row {
     padding: 70px 0; /* Background lives on the outer section */
@@ -564,6 +564,145 @@ ul { list-style: none; }
 .info-item h4 { font-size: 1rem; margin-bottom: 3px; }
 .info-item p { font-size: 0.9rem; color: #cbd5e1; }
 
+/* ============================================
+   TAX CALCULATOR (Tabbed, FY 2025-2026)
+   ============================================ */
+.tax-section {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tax-main-heading {
+    text-align: center;
+    color: var(--primary-navy);
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.brand-divider-gap { margin-top: 24px; }
+
+/* Folder-style tab bar (text-link tabs) */
+.tax-tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 8px;
+    gap: 2px;
+}
+
+.tax-tab {
+    appearance: none;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    color: var(--text-dark);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 13px 20px;
+    margin-bottom: -1px; /* rides over the strip line */
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.tax-tab:hover { color: var(--primary-navy); }
+
+.tax-tab.active {
+    background: var(--white);
+    border-color: #e2e8f0;
+    color: var(--primary-navy);
+    box-shadow: inset 0 -3px 0 var(--accent-yellow); /* yellow underline, like the navbar */
+    position: relative;
+    z-index: 1;
+}
+
+/* White card that the active tab blends into */
+.tax-card {
+    background: var(--white);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    padding: 40px;
+}
+
+.tax-panel.hidden { display: none; }
+
+.tax-panel-heading {
+    color: var(--primary-navy);
+    font-size: 1.45rem;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.tax-panel .divider { margin-bottom: 25px; }
+
+.tax-field-group { margin-bottom: 20px; }
+
+.tax-field-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.87rem;
+    margin-bottom: 8px;
+}
+
+.tax-field-group select,
+.tax-field-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text-dark);
+    outline: none;
+    background: var(--white);
+    transition: 0.2s;
+}
+
+.tax-field-group select:focus,
+.tax-field-group input:focus {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
+}
+
+.tax-btn {
+    width: 100%;
+    background: var(--accent-yellow);
+    color: var(--primary-navy);
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tax-btn:hover {
+    background: var(--yellow-dark);
+    transform: translateY(-1px);
+}
+
+.tax-coming {
+    text-align: center;
+    color: var(--text-light);
+    padding: 35px 0 15px;
+    font-size: 0.95rem;
+}
+
+.tax-coming i { color: var(--accent-yellow); margin-right: 8px; }
+
+@media (max-width: 768px) {
+    .tax-main-heading { font-size: 1.6rem; }
+    .tax-tabs { flex-wrap: wrap; }
+    .tax-tab { padding: 11px 14px; font-size: 0.9rem; }
+    .tax-card { padding: 25px 18px; border-radius: 0 0 8px 8px; }
+}
+/* ============================================
 /* ============================================
    FOOTER
    ============================================ */
