@@ -702,6 +702,7 @@ ul { list-style: none; }
     .tax-tabs { flex-wrap: wrap; }
     .tax-tab { padding: 11px 14px; font-size: 0.9rem; }
     .tax-card { padding: 25px 18px; border-radius: 0 0 8px 8px; }
+    .tax-rules { padding: 22px 18px; }
 }
 
 /* Result card shown under a calculator form */
@@ -753,7 +754,7 @@ ul { list-style: none; }
     color: #64748b;
 }
 
-/* FBR rules summary table + caution (Tax Year 2025-2026) */
+/* Rules summary cards + caution (Tax Year 2025-2026) */
 .tax-rules {
     background: var(--white);
     border-radius: 10px;
@@ -772,37 +773,89 @@ ul { list-style: none; }
     text-align: center;
     color: var(--text-light);
     font-size: 0.85rem;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
-.tax-rules-table-wrap { overflow-x: auto; }
+/* One card per category, one rate per line */
+.tax-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+    gap: 18px;
+}
 
-.tax-rules-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.87rem;
+.tax-rule-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 20px 20px;
+    background: var(--light-bg);
+}
+
+.tax-rule-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-navy);
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-yellow);
+}
+
+.tax-rule-title i { font-size: 0.95rem; }
+
+.tax-rule-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin: 0 0 6px;
+}
+
+.tax-rule-label + .tax-rule-rates { margin-bottom: 14px; }
+
+.tax-rule-rates,
+.tax-rule-conditions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tax-rule-rates { margin-bottom: 14px; }
+
+.tax-rule-rates li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 0.85rem;
     color: var(--text-dark);
 }
 
-.tax-rules-table th,
-.tax-rules-table td {
-    padding: 10px 12px;
-    border: 1px solid #e2e8f0;
-    text-align: left;
-    vertical-align: top;
-    line-height: 1.5;
-}
+.tax-rule-rates li:last-child { border-bottom: none; }
 
-.tax-rules-table th {
-    background: #f8fafc;
+.tax-rule-rates strong {
     color: var(--primary-navy);
-    font-weight: 700;
+    font-variant-numeric: tabular-nums;
     white-space: nowrap;
 }
 
-.tax-rules-table td:first-child {
-    font-weight: 600;
-    white-space: nowrap;
+.tax-rule-conditions li {
+    position: relative;
+    padding: 3px 0 3px 14px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+.tax-rule-conditions li::before {
+    content: '\2022';
+    position: absolute;
+    left: 2px;
+    color: var(--yellow-dark);
+    font-weight: 700;
 }
 
 .tax-caution {
