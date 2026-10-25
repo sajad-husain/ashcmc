@@ -64,19 +64,19 @@
 
                 <!-- Tab Navigation -->
                 <div class="tax-tabs" role="tablist">
-                    <button class="tax-tab active" data-panel="panel-salary" type="button">Salary Tax</button>
-                    <button class="tax-tab" data-panel="panel-pension" type="button">Pension Tax</button>
-                    <button class="tax-tab" data-panel="panel-business" type="button">Business Tax</button>
-                    <button class="tax-tab" data-panel="panel-rental" type="button">Rental Tax</button>
-                    <button class="tax-tab" data-panel="panel-property" type="button">Property Tax</button>
+                    <button class="tax-tab active" type="button" role="tab" aria-selected="true" data-panel="panel-salary">Salary Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-pension">Pension Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-business">Business Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-rental">Rental Tax</button>
+                    <button class="tax-tab" type="button" role="tab" aria-selected="false" data-panel="panel-property">Property Tax</button>
                 </div>
 
                 <!-- Calculator Card -->
                 <div class="tax-card">
-                    <!-- Salary Tax Panel (default) -->
-                    <div class="tax-panel" id="panel-salary">
+                    <!-- 1) Salary Tax -->
+                    <div class="tax-panel" id="panel-salary" role="tabpanel" aria-hidden="false">
                         <h2 class="tax-panel-heading">Salary Tax Calculator (2025-2026)</h2>
-                        <form id="taxForm">
+                        <form class="tax-calc-form">
                             <div class="tax-field-group">
                                 <label for="salary-type">Salary Type</label>
                                 <select id="salary-type" name="salary-type">
@@ -92,28 +92,94 @@
                         </form>
                     </div>
 
-                    <!-- Pension Tax Panel -->
-                    <div class="tax-panel hidden" id="panel-pension">
+                    <!-- 2) Pension Tax -->
+                    <div class="tax-panel hidden" id="panel-pension" role="tabpanel" aria-hidden="true">
                         <h2 class="tax-panel-heading">Pension Tax Calculator (2025-2026)</h2>
-                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — contact our team for pension tax advisory in the meantime.</p>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="pension-amount">Annual Pension Amount (PKR)</label>
+                                <input type="number" id="pension-amount" name="pension-amount" placeholder="e.g. 900000" min="1" step="any">
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="pension-age">Age</label>
+                                <select id="pension-age" name="pension-age">
+                                    <option value="below-70">Below 70</option>
+                                    <option value="above-70">Above 70</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
                     </div>
 
-                    <!-- Business Tax Panel -->
-                    <div class="tax-panel hidden" id="panel-business">
+                    <!-- 3) Business Tax -->
+                    <div class="tax-panel hidden" id="panel-business" role="tabpanel" aria-hidden="true">
                         <h2 class="tax-panel-heading">Business Tax Calculator (2025-2026)</h2>
-                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — our team handles business tax planning and filings for companies and sole proprietors.</p>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="business-type">Business Income Type</label>
+                                <select id="business-type" name="business-type">
+                                    <option value="annual">Annual</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="business-income">Business Income (PKR)</label>
+                                <input type="number" id="business-income" name="business-income" placeholder="e.g. 2500000" min="1" step="any">
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
                     </div>
 
-                    <!-- Rental Tax Panel -->
-                    <div class="tax-panel hidden" id="panel-rental">
+                    <!-- 4) Rental Tax -->
+                    <div class="tax-panel hidden" id="panel-rental" role="tabpanel" aria-hidden="true">
                         <h2 class="tax-panel-heading">Rental Tax Calculator (2025-2026)</h2>
-                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — for rental income tax estimates, reach us at Ashcmc.ceo@gmail.com.</p>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="rental-type">Rental Income Type</label>
+                                <select id="rental-type" name="rental-type">
+                                    <option value="annual">Annual</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="rental-income">Rental Income (PKR)</label>
+                                <input type="number" id="rental-income" name="rental-income" placeholder="e.g. 600000" min="1" step="any">
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="rental-filer">Filer Status</label>
+                                <select id="rental-filer" name="rental-filer">
+                                    <option value="filer">Filer</option>
+                                    <option value="non-filer">Non-Filer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
                     </div>
 
-                    <!-- Property Tax Panel -->
-                    <div class="tax-panel hidden" id="panel-property">
+                    <!-- 5) Property Tax -->
+                    <div class="tax-panel hidden" id="panel-property" role="tabpanel" aria-hidden="true">
                         <h2 class="tax-panel-heading">Property Tax Calculator (2025-2026)</h2>
-                        <p class="tax-coming"><i class="fa-solid fa-hourglass-half"></i>Coming soon — property sales tax &amp; advance tax advisory available on request.</p>
+                        <form class="tax-calc-form">
+                            <div class="tax-field-group">
+                                <label for="property-transaction">Transaction Type</label>
+                                <select id="property-transaction" name="property-transaction">
+                                    <option value="sale">Sale/Transfer</option>
+                                    <option value="purchase">Purchase</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="property-amount">Amount (PKR)</label>
+                                <input type="number" id="property-amount" name="property-amount" placeholder="e.g. 15000000" min="1" step="any">
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="property-filer">Filer Status</label>
+                                <select id="property-filer" name="property-filer">
+                                    <option value="filer">Filer</option>
+                                    <option value="non-filer">Non-Filer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="tax-btn">Calculate</button>
+                        </form>
                     </div>
                 </div>
             </div>
