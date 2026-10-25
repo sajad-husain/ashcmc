@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Calculator | ASH Corporate</title>
-    <meta name="description" content="Free income tax calculator for Pakistani salaried individuals. Estimate your annual and monthly tax quickly.">
+    <meta name="description" content="Free Pakistan tax calculator (FBR rules, Tax Year 2025-2026) for salary, pension, business, rental income, and property transactions. Estimate your annual and monthly tax quickly.">
     <link rel="icon" href="notlog-favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -92,6 +92,7 @@
                             </div>
                             <button type="submit" class="tax-btn">Calculate</button>
                         </form>
+                        <div class="tax-result" id="tax-result-salary" hidden></div>
                     </div>
 
                     <!-- 2) Pension Tax -->
@@ -104,14 +105,29 @@
                                 <input type="number" id="pension-amount" name="pension-amount" placeholder="e.g. 900000" min="1" step="any">
                             </div>
                             <div class="tax-field-group">
+                                <label for="pension-source">Pension Source</label>
+                                <select id="pension-source" name="pension-source">
+                                    <option value="government">Government Pension</option>
+                                    <option value="private">Private Pension</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
                                 <label for="pension-age">Age</label>
                                 <select id="pension-age" name="pension-age">
                                     <option value="below-70">Below 70</option>
-                                    <option value="above-70">Above 70</option>
+                                    <option value="above-70">Age 70 or Above</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
+                                <label for="pension-reemployed">Re-Employed by the Same Employer?</label>
+                                <select id="pension-reemployed" name="pension-reemployed">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
                                 </select>
                             </div>
                             <button type="submit" class="tax-btn">Calculate</button>
                         </form>
+                        <div class="tax-result" id="tax-result-pension" hidden></div>
                     </div>
 
                     <!-- 3) Business Tax -->
@@ -132,6 +148,7 @@
                             </div>
                             <button type="submit" class="tax-btn">Calculate</button>
                         </form>
+                        <div class="tax-result" id="tax-result-business" hidden></div>
                     </div>
 
                     <!-- 4) Rental Tax -->
@@ -151,6 +168,13 @@
                                 <input type="number" id="rental-income" name="rental-income" placeholder="e.g. 600000" min="1" step="any">
                             </div>
                             <div class="tax-field-group">
+                                <label for="rental-landlord">Landlord Type</label>
+                                <select id="rental-landlord" name="rental-landlord">
+                                    <option value="individual">Individual</option>
+                                    <option value="company">Company</option>
+                                </select>
+                            </div>
+                            <div class="tax-field-group">
                                 <label for="rental-filer">Filer Status</label>
                                 <select id="rental-filer" name="rental-filer">
                                     <option value="filer">Filer</option>
@@ -159,6 +183,7 @@
                             </div>
                             <button type="submit" class="tax-btn">Calculate</button>
                         </form>
+                        <div class="tax-result" id="tax-result-rental" hidden></div>
                     </div>
 
                     <!-- 5) Property Tax -->
@@ -186,7 +211,57 @@
                             </div>
                             <button type="submit" class="tax-btn">Calculate</button>
                         </form>
+                        <div class="tax-result" id="tax-result-property" hidden></div>
                     </div>
+                </div>
+
+                <!-- FBR Rules Summary (Tax Year 2025-2026) -->
+                <div class="tax-rules brand-divider-gap">
+                    <h2>FBR Income Tax Rules &mdash; Tax Year 2025-2026</h2>
+                    <p class="tax-rules-sub">Brief summary of the rules our calculators use</p>
+                    <div class="tax-rules-table-wrap">
+                        <table class="tax-rules-table">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Key Rates (2025-2026)</th>
+                                    <th>Important Conditions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Salary</td>
+                                    <td>0% up to Rs. 6L; 2.5% on Rs. 6L&ndash;12L; 11% on Rs. 12L&ndash;22L; 23% on Rs. 22L&ndash;32L; 30% on Rs. 32L&ndash;41L; 35% above Rs. 41L</td>
+                                    <td>Monthly salary is annualised (&times;12). 9% surcharge on tax if annual taxable salary exceeds Rs. 1 crore. Salaried status: salary &ge; 75% of taxable income.</td>
+                                </tr>
+                                <tr>
+                                    <td>Pension</td>
+                                    <td>0% up to Rs. 1 crore; 5% on the excess</td>
+                                    <td>Government pension fully exempt. Private pension at age 70+ fully exempt. Re-employed by the same employer: normal salary slabs apply. (Sec. 12(2)(f))</td>
+                                </tr>
+                                <tr>
+                                    <td>Business</td>
+                                    <td>0% up to Rs. 6L; 15% on Rs. 6L&ndash;12L; 20% on Rs. 12L&ndash;16L; 30% on Rs. 16L&ndash;32L; 40% on Rs. 32L&ndash;56L; 45% above Rs. 56L</td>
+                                    <td>10% surcharge on tax if taxable income exceeds Rs. 1 crore. AOPs barred from incorporating (CAs, law firms) capped at 40% top rate. (First Schedule, Part I)</td>
+                                </tr>
+                                <tr>
+                                    <td>Rental</td>
+                                    <td>0% up to Rs. 3L; 5% on Rs. 3L&ndash;6L; 10% on Rs. 6L&ndash;20L; 25% above Rs. 20L (of net rent)</td>
+                                    <td>Automatic 20% repair deduction for individuals (Net Rent = Gross Rent &times; 0.80). Company landlords: flat 15% (filer) / 30% (non-filer) withholding. Adjustable against final return. (Sec. 15 &amp; 155)</td>
+                                </tr>
+                                <tr>
+                                    <td>Property</td>
+                                    <td>Sale (236C): 2.75% filer / 11.5% non-filer. Purchase (236K): 1.25% filer; non-filers 10.5%&ndash;18.5% in bands</td>
+                                    <td>Charged on the higher of gross consideration or FBR/DC fair market value. Non-filer purchase bands: 10.5% up to Rs. 5 crore, 14.5% up to Rs. 10 crore, 18.5% above. (Sec. 236C &amp; 236K)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tax-caution">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p><strong>Caution:</strong> All calculations on this page are made on the basis of the <strong>FBR (Government of Pakistan) Income Tax rules for Tax Year 2025-2026</strong> &mdash; the First Schedule of the Income Tax Ordinance 2001 as amended by the Finance Act 2025, plus related rules of Sections 12(2)(f), 15, 155, 236C, and 236K. Figures are estimates for guidance only and do not cover exemptions, credits, provincial taxes, or your personal circumstances. Please consult our team for filing and planning.</p>
+                    </div>
+                    <p class="tax-source">Sources: FBR First Schedule (Finance Act 2025/2026); Income Tax Ordinance 2001, Sections 12(2)(f), 15, 155, 236C &amp; 236K and the Second Schedule.</p>
                 </div>
             </div>
         </div>
