@@ -781,6 +781,9 @@ footer {
 @media (max-width: 768px) {
     .top-bar-flex { flex-direction: column; gap: 10px; text-align: center; }
     .top-info span { margin: 0 8px; }
+    /* on small screens keep only phone + email in the top strip */
+    .top-info .top-hours,
+    .top-social { display: none; }
 
     .hero { padding: 80px 0; }
     .hero h1 { font-size: 2.3rem; }
