@@ -1060,3 +1060,63 @@ footer {
 
     .career-box { padding: 40px 25px; }
 }
+
+/* ============================================
+   FLOATING WHATSAPP BUTTON
+   ============================================ */
+#whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background-color: #25D366;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#whatsapp-btn i {
+    font-size: 1.4rem;
+    animation: wa-pulse 2.4s infinite ease-in-out;
+}
+
+#whatsapp-btn:hover {
+    transform: scale(1.05);
+    background-color: #1fb857;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes wa-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #whatsapp-btn i { animation: none; }
+    #whatsapp-btn:hover { transform: none; }
+}
+
+@media (max-width: 768px) {
+    #whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    #whatsapp-btn span { display: none; }
+    #whatsapp-btn i { font-size: 1.7rem; }
+}
