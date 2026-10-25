@@ -58,9 +58,9 @@ if (contactForm) {
 }
 
 /* ------------------------------------------------
-   3. TAX CALCULATOR — tabbed redesign
-   Tab switching is active now; the calculation runs
-   in console.log only until slab logic is wired up.
+   3. TAX CALCULATOR — 5 tabbed calculators
+   Tab switching works now; Calculate shows a
+   placeholder alert until slab logic is wired up.
 ------------------------------------------------ */
 const taxTabs = document.querySelectorAll('.tax-tab');
 
@@ -69,48 +69,31 @@ if (taxTabs.length) {
 
     taxTabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-            taxTabs.forEach(function (t) { t.classList.remove('active'); });
+            taxTabs.forEach(function (t) {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
             tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
 
             // Show the matching panel, hide the rest
             taxPanels.forEach(function (panel) {
-                panel.classList.toggle('hidden', panel.id !== tab.dataset.panel);
+                const isTarget = panel.id === tab.dataset.panel;
+                panel.classList.toggle('hidden', !isTarget);
+                panel.setAttribute('aria-hidden', String(!isTarget));
             });
         });
     });
 }
 
-/**
- * Annual tax for salaried individuals (kept ready for upcoming logic)
- * @param {number} taxable - annual taxable income in PKR
- * @returns {number} annual tax in PKR
- */
-function calculateAnnualTax(taxable) {
-    if (taxable <= 600000) return 0;                                  // 0%
-    if (taxable <= 1200000) return (taxable - 600000) * 0.15;         // 15%
-    if (taxable <= 2200000) return 90000 + (taxable - 1200000) * 0.20; // 20%
-    if (taxable <= 3200000) return 290000 + (taxable - 2200000) * 0.30; // 30%
-    if (taxable <= 4100000) return 590000 + (taxable - 3200000) * 0.35; // 35%
-    return 905000 + (taxable - 4100000) * 0.40;                       // 40%
-}
+// Placeholder handler for all five calculator forms
+const calcForms = document.querySelectorAll('.tax-calc-form');
 
-function formatPKR(amount) {
-    return 'PKR ' + Math.round(amount).toLocaleString('en-PK');
-}
-
-const taxForm = document.getElementById('taxForm');
-
-if (taxForm) {
-    taxForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const type = document.getElementById('salary-type').value;   // "annual" | "monthly"
-        const amount = document.getElementById('salary-amount').value;
-
-        console.log('Tax Calculator input:', {
-            salaryType: type,
-            salaryAmount: amount
+if (calcForms.length) {
+    calcForms.forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Calculation logic will be added soon!');
         });
-        // Real slab calculation and on-page results will be added here later.
     });
 }
