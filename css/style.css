@@ -122,8 +122,8 @@ ul { list-style: none; }
    HERO (Home)
    ============================================ */
 .hero {
-    background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.82)),
-        url('img/hero-bg.jpg') center/cover;
+    background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.62)),
+        url('../img/hero-bg.jpg') center/cover no-repeat;
     color: var(--white);
     padding: 120px 0;
     text-align: left;
@@ -172,8 +172,8 @@ ul { list-style: none; }
    PAGE HEADER (Inner pages banner)
    ============================================ */
 .page-header {
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
-        url('img/page-header-bg.jpg') center/cover;
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.68)),
+        url('../img/page-header-bg.jpg') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     padding: 70px 0;
