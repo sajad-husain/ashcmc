@@ -765,23 +765,14 @@ ul { list-style: none; }
 .tax-rules h2 {
     text-align: center;
     color: var(--primary-navy);
-    font-size: 1.3rem;
-    margin-bottom: 6px;
+    font-size: 1.25rem;
+    margin-bottom: 18px;
 }
 
-.tax-rules-sub {
-    text-align: center;
-    color: var(--text-light);
-    font-size: 0.85rem;
-    margin-bottom: 22px;
-}
+/* Rule card shown inside the active calculator tab */
+.tax-panel-rules { margin-top: 26px; }
 
-/* One card per category, one rate per line */
-.tax-rules-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
-    gap: 18px;
-}
+.tax-rules .tax-caution { margin-top: 0; }
 
 .tax-rule-card {
     border: 1px solid #e2e8f0;
