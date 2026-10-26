@@ -131,6 +131,13 @@ ul { list-style: none; }
 }
 
 .hero-content { max-width: 700px; }
+.hero-tagline {
+    color: var(--accent-yellow);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+}
 .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
 .hero h1 span { color: var(--accent-yellow); }
 .hero p { font-size: 1.1rem; margin-bottom: 30px; color: #cbd5e1; }
